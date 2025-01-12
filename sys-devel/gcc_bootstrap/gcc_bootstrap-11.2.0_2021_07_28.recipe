@@ -172,6 +172,10 @@ BUILD()
 		additionalConfigureFlags+=" --disable-multilib"
 		additionalConfigureFlags+=" --with-arch=rv64gc"
 	fi
+	if [ $effectiveTargetArchitecture == loongarch64 ]; then
+		additionalConfigureFlags+=" --disable-multilib"
+		additionalConfigureFlags+=" --with-arch=lp64d"
+	fi
 	if [ $effectiveTargetArchitecture == powerpc ]; then
 		# TODO: Disable building wtih TLS support for ARM until implemented
 		additionalConfigureFlags+=" --disable-tls"
